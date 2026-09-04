@@ -1,51 +1,36 @@
 # so_long
 
-A small 2D game developed in C using the MiniLibX graphical library as part of the 42 curriculum.
+A small 2D game developed in C using the MiniLibX graphical library.
 
-The goal of the project is to create a simple playable game where the player must collect all the collectibles before reaching the exit, while respecting the map constraints.
+The goal of the project is to create a simple playable game where the player must collect all the collectibles on a map before reaching the exit, while respecting the map's constraints.
 
 ## 🎮 About the Project
 
-**so_long** is a project from the 42 curriculum focused on graphical programming, event handling, map parsing, textures, and memory management in C.
+**so_long** is a project from the 42 curriculum focused on graphical programming, event handling, map parsing, and memory management in C.
 
-The project uses **MiniLibX** to create the game window, display the game elements, handle keyboard events, and manage player movement.
+The project introduces the use of **MiniLibX**, a lightweight graphical library provided by 42, to create a window, display textures, handle keyboard events, and manage a simple game loop.
 
-## 👥 Team & Contributions
+The player must:
 
-This project was completed as a **team project**.
-
-### Noura Akebli
-
-I was responsible for:
-
-* **Map parsing and validation**
-* Reading and processing `.ber` map files
-* Checking the validity of the map
-* Verifying the required map elements (`P`, `E`, `C`, `0`, `1`)
-* Implementing the map validation logic
-* **Textures**
-* Loading and managing the game's textures
-* Preparing the graphical assets used by the game
-
-### Oumaima Chachi
-
-My teammate **Oumaima Chachi** was responsible for the **other parts of the project**, including the remaining game logic and implementation.
-
-We worked together to integrate our respective parts into a functional game.
+* Move around the map.
+* Collect all collectibles.
+* Reach the exit after collecting everything.
+* Avoid invalid moves outside the map or through walls.
+* Complete the game using the minimum number of necessary movements.
 
 ## ✨ Features
 
-* 2D graphical game using MiniLibX.
-* `.ber` map parsing.
-* Map validation.
-* Player movement.
-* Collectibles.
-* Exit.
+* 2D graphical game.
+* Map loaded from a `.ber` file.
+* Player movement using the keyboard.
+* Collectible items.
+* Exit that becomes available after collecting all collectibles.
 * Walls and map boundaries.
-* Texture management.
-* Movement counter.
-* Path validation to ensure the map is playable.
-* Error handling and memory management.
+* Movement counter displayed in the terminal.
+* Map validation.
+* Flood-fill/path validation to ensure the map is playable.
+* Basic error handling.
+* Proper resource and memory management.
 
 ## 🛠️ Technologies
 
@@ -57,7 +42,7 @@ We worked together to integrate our respective parts into a functional game.
 
 ## 📋 Map Rules
 
-The map uses the following characters:
+The map must follow the required format and contain:
 
 | Symbol | Meaning     |
 | ------ | ----------- |
@@ -104,11 +89,13 @@ make
 
 ## ▶️ Usage
 
-Run the game with a `.ber` map:
+Run the game with a valid `.ber` map:
 
 ```bash
 ./so_long maps/map.ber
 ```
+
+The game window will open and the player can move using the supported keyboard controls.
 
 ## ⌨️ Controls
 
@@ -122,21 +109,22 @@ Run the game with a `.ber` map:
 
 ## 🧠 Concepts Practiced
 
-Through this project, I practiced:
+This project allowed me to practice and strengthen several important C programming concepts:
 
-* File parsing.
-* Map validation.
-* 2D arrays and grid manipulation.
-* Pointers and structures.
+* Parsing files.
+* Working with 2D maps.
 * Dynamic memory allocation.
-* Texture loading.
-* Graphical programming with MiniLibX.
+* Structures.
+* Pointers.
+* String manipulation.
+* File descriptors.
 * Event handling.
 * Keyboard input.
-* Flood-fill/path validation.
+* Basic graphical programming.
+* Map validation.
+* Flood-fill algorithms.
 * Memory management.
 * Makefiles and compilation.
-* Team collaboration using Git.
 
 ## 🗂️ Project Structure
 
@@ -144,26 +132,51 @@ Through this project, I practiced:
 so_long/
 ├── Makefile
 ├── include/
+│   └── so_long.h
 ├── src/
+│   ├── parsing/
+│   ├── map/
+│   ├── movement/
+│   ├── rendering/
+│   └── ...
 ├── textures/
+│   └── ...
 ├── maps/
+│   └── ...
 └── README.md
 ```
 
-The exact organization may vary depending on the implementation.
+> The exact structure may vary depending on the implementation.
+
+## 🧪 Compilation
+
+The project is compiled using the provided `Makefile`.
+
+Available commands:
+
+```bash
+make
+make clean
+make fclean
+make re
+```
+
+* `make` — compiles the project.
+* `make clean` — removes object files.
+* `make fclean` — removes object files and the executable.
+* `make re` — recompiles the project from scratch.
 
 ## 🎯 Project Objective
 
-The objective of **so_long** was to create a functional 2D game while learning how to combine C programming with graphical programming and algorithms.
+The main objective of **so_long** is to build a small functional 2D game while learning how to combine:
 
-Working as a team also allowed us to divide the project into different parts and integrate our implementations into one final application.
+**C programming + algorithms + file parsing + graphics + event handling.**
 
-## 👤 Authors
+This project was an opportunity to work with a graphical library for the first time and to understand how user input and graphical events can interact with a C program.
+
+## 👤 Author
 
 **Noura Akebli**
-Map Parsing & Validation — Textures
-
-**Oumaima Chachi**
-Game Logic & Other Project Components
 
 42 Network
+
